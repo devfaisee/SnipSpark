@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Available CSS Snippets</h2>
+<div class="row">
+  {% for s in snippets %}
+  <div class="col-md-6 mb-3">
+    <div class="card p-3">
+      <div class="d-flex justify-content-between">
+        <h5>{{ s.title }}</h5>
+        <div>
+          <a class="btn btn-sm btn-outline-secondary" href="/snippet/{{ s.id }}">View</a>
+        </div>
+      </div>
+      <p class="text-muted small">{{ s.description }}</p>
+      <pre class="snippet-code">{{ s.code }}</pre>
+      <div class="mt-2 d-flex gap-2">
+        <button class="btn btn-sm btn-outline-primary copy-btn" data-code='{{ s.code | e }}'>Copy</button>
+        <a class="btn btn-sm btn-outline-success" href="/snippet/{{ s.id }}">Preview</a>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+
+<script>
+// copy buttons
+document.querySelectorAll('.copy-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const code = btn.getAttribute('data-code');
+    navigator.clipboard.writeText(code).then(() => {
+      btn.textContent = 'Copied!';
+      setTimeout(() => btn.textContent = 'Copy', 1200);
+    });
+  });
+});
+</script>
+
+{% endblock %}
