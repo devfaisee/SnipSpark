@@ -1,0 +1,5 @@
+body { font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial; }
+.snippet-code { background: #0f172a; color: #e6eef8; padding: 12px; border-radius: 6px; overflow:auto; }
+.preview-box { background: white; border-radius: 8px; padding: 12px; border: 1px solid #eee; }
+.example-card { padding: 12px; border-radius: 10px; }
+.btn-demo { margin-top: 10px; }
