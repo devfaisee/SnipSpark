@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% block content %}
+<h3>{{ snippet.title }}</h3>
+<p class="text-muted">{{ snippet.description }}</p>
+<div class="row">
+  <div class="col-md-6">
+    <h6>Code</h6>
+    <pre class="snippet-code">{{ snippet.code }}</pre>
+    <div class="mt-2">
+      <button class="btn btn-sm btn-primary" id="copyBtn">Copy CSS</button>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <h6>Live Preview</h6>
+    <!-- Inject snippet CSS into a style tag for preview -->
+    <style id="snippet-style">
+      {{ snippet.preview_style() }}
+    </style>
+    <div class="preview-box p-3">
+      <div class="card example-card">
+        <h5>Example card</h5>
+        <p>This card uses the CSS from the snippet to show how it looks.</p>
+        <button class="btn btn-demo">Demo Button</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+document.getElementById('copyBtn').addEventListener('click', () => {
+  navigator.clipboard.writeText(`{{ snippet.code | e }}`)
+    .then(() => { alert('Copied to clipboard'); })
+});
+</script>
+
+{% endblock %}
