@@ -1,0 +1,14 @@
+[
+  {
+    "id": 1,
+    "title": "Rounded Card",
+    "description": "A simple rounded card with shadow.",
+    "code": ".card {\n  background: white;\n  padding: 16px;\n  border-radius: 12px;\n  box-shadow: 0 6px 18px rgba(0,0,0,0.08);\n}"
+  },
+  {
+    "id": 2,
+    "title": "Gradient Button",
+    "description": "A fancy gradient button.",
+    "code": ".btn-gradient {\n  padding: 10px 18px;\n  border-radius: 8px;\n  background: linear-gradient(90deg,#6b8cff,#8b63ff);\n  color: white;\n  border: none;\n  cursor: pointer;\n}"
+  }
+]
